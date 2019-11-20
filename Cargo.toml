@@ -12,7 +12,14 @@ regex = "1.3.1"
 tokio = "0.2.0-alpha.6"
 hyper = "0.13.0-alpha.4"
 hyper-tls = "0.4.0-alpha.4"
+time = "0.1.42"
+crypto-hash = "0.3.4"
+
 
 [[bin]]
 name = "ticket_util"
 path = "src/bin/ticket_util.rs"
+
+[[bin]]
+name = "blockchain"
+path = "src/bin/blockchain.rs"

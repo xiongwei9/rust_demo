@@ -47,7 +47,7 @@ pub fn get_content(response: String) -> Result<String, regex::Error> {
 }
 
 pub async fn fetch_url(url: hyper::Uri) -> Result<String, Box<dyn std::error::Error>> {
-    let https = HttpsConnector::new().unwrap();
+    let https = HttpsConnector::new();
     let client = Client::builder().build::<_, hyper::Body>(https);
 
     let res = client.get(url).await?;
@@ -55,10 +55,10 @@ pub async fn fetch_url(url: hyper::Uri) -> Result<String, Box<dyn std::error::Er
     let mut body = res.into_body();
     let mut v = Vec::new();
 
-    while let Some(next) = body.next().await {
-        let chunk = next?;
-        v.append(&mut chunk.to_vec());
-    }
+//    while let Some(next) = body.next().await {
+//        let chunk = next?;
+//        v.append(&mut chunk.to_vec());
+//    }
     let res = String::from(str::from_utf8(&v)?);
 
     Ok(res)

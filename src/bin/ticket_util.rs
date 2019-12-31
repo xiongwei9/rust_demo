@@ -1,15 +1,15 @@
+use async_std::task;
 use std::io;
 use std::str;
 
 use rust_demo::http::*;
 
-#[tokio::main]
-async fn main() {
+fn main() {
     let uri = "https://kyfw.12306.cn/otn/resources/js/framework/station_name.js"
         .parse()
         .unwrap();
 
-    let response = fetch_url(uri).await.unwrap();
+    let response = task::block_on(fetch_url(uri)).unwrap();
 
     let stations = get_content(response).unwrap();
     let stations = stations.split("@").collect::<Vec<&str>>();
@@ -23,7 +23,7 @@ async fn main() {
             break;
         }
         if input.starts_with("search") {
-            let input = input.split("\\s+").collect::<Vec<&str>>();
+            let input = input.split(" ").collect::<Vec<&str>>();
             if input.len() < 2 {
                 println!();
                 continue;

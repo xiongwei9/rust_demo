@@ -8,16 +8,9 @@ edition = "2018"
 
 [dependencies]
 async-std = "1.4.0"
-regex = "1.3.1"
-hyper = "0.13.1"
-hyper-tls = "0.4.0"
 time = "0.1.42"
 crypto-hash = "0.3.4"
 
-
-[[bin]]
-name = "ticket_util"
-path = "src/bin/ticket_util.rs"
 
 [[bin]]
 name = "blockchain"

@@ -1,5 +1,6 @@
 pub mod block_chain;
 pub mod fs;
+pub mod http;
 
 #[cfg(test)]
 mod tests {

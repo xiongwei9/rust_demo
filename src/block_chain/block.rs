@@ -2,7 +2,8 @@ use super::*;
 use time;
 
 pub fn now() -> i64 {
-    time::now().to_timespec().sec
+    // time::now().to_timespec().sec
+    time::OffsetDateTime::now_utc().unix_timestamp()
 }
 
 #[derive(Debug)]

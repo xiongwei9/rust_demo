@@ -18,7 +18,7 @@ pub async fn request(
     // stream.flush()?;
 
     let mut buffer = Vec::new();
-    // FIX: 不知道为什么read_to_end要等好久
+    // FIXME: 不知道为什么read_to_end要等好久
     // 测试了一下，rust tcpStream接收http响
     // 应的时候，到最后会等待一会儿，看还有没
     // 有数据没到的，不知道怎么去掉这个等待
